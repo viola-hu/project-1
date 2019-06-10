@@ -1,0 +1,28 @@
+
+<% if flash[:errors].present? %>
+  <ul>
+    <%= flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @recipe do |f| %>
+
+  <%= f.label :category_id, 'Select Nutrition Category' %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, prompt:'Nutrition Category' %>
+  <br><br>
+  <%= f.label :name, 'Smoothie name' %>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.label :image, 'Upload an image' %>
+  <%= f.text_field :image %>
+  <br><br>
+  <%= f.label :ingredients %>
+  <%= f.text_field :ingredients %>
+  <br>
+  <br>
+  <%= f.submit %>
+
+<% end %>
