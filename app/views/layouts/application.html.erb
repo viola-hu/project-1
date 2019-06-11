@@ -7,9 +7,28 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
   </head>
 
   <body>
+
+    <!-- nav bar on the top should add in this page!!! -->
+
+    <nav>
+
+      <%= link_to 'Home', root_path %>
+
+      <% if @current_user.present? %>
+        <%= link_to 'Log out', login_path, method:'delete' %>
+        <p>Welcome <%= @current_user.name %>!</p>
+      <% else %>
+        <%= link_to 'Sign up', new_user_path %>
+        <%= link_to 'Log in', login_path %>
+      <% end %>
+
+    </nav>
+
+
     <h1> Nutrition & Smoothies </h1>
 
     <hr>

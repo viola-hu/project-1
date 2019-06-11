@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   resources :users, except:[:index]
 
   resources :recipes
+  # define a route to create a review, passing the recipe_id
+  post '/recipes/:id/new_review' => 'reviews#create', as: 'new_review'
+
+  # make reviews [:create] exception, so rails won't generate path automatically for us, and we can customise the path as above with recipe_id passed over!!!
+  resources :reviews, except:[:new, :create, :index, :show]
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -1,2 +1,62 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<!-- use category's image to be header image on the top -->
+<%= image_tag @recipe.category.image, alt: "#{@recipe.category.name}" %>
+
+<h2><%= @recipe.name.upcase %></h2>
+<h3>By <%= @recipe.user.name %></h3>
+
+<%# image sitting next to the the title, need to limit the image size! %>
+<% if @recipe.image.present? %>
+  <%= cl_image_tag @recipe.image, alt: "#{@recipe.name}"%>
+<% end %>
+
+<h3>Ingredients</h3>
+<p><%= @recipe.ingredients %></p>
+
+<% if @current_user.present? && @current_user == @recipe.user%>
+  <%= link_to 'Edit this recipe', edit_recipe_path(@recipe) %>
+<% end %>
+
+<h3>Ratings & Comments</h3>
+
+<!-- public area, show exisiting comments -->
+
+<% if @recipe.reviews.present? %>
+  <% @recipe.reviews.each do |review| %>
+    <p>Rating: <%= review.rating %> | By: <%= review.user.name %></p>
+    <p>Comment: <%= review.comment %></p>
+  <% end %>
+<% else %>
+  <p>No comments yet!</p>
+<% end %>
+
+
+
+<!-- authenticated user area: if login && not recipe owner, can make comment -->
+
+<% if flash.now[:errors].present? %>
+  <ul>
+    <% flash.now[:errors].each do |error| %>
+    <li> <%= error %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<% if @current_user.present? %>
+  <% if @current_user.id != @recipe.user_id %>
+    <%= form_tag new_review_path do %>
+      <%= label_tag :rating, "Your rating: " %>
+      <%= text_field_tag :rating, nil, placeholder: "Rating out of 5" %>
+      <br>
+      <%= label_tag :comment, "Your comment: " %>
+      <!-- @review&.comment is checking if @review is nil? if no, use @review.comment as defalt value, thus when errors happen and render this page (in ReviewsController), previous comment is prefilled.
+      '&' - safe navigation operator, checking if the left object is nil?
+      if nil, not to touch it(otherwise it triggers error), and text_area_tag's value will be nil automatically; if @review has valid value not nil, show @review.comment's value-->
+      <%= text_area_tag :comment, @review&.comment, placeholder: "Write your comment" %>
+      <br>
+      <%= submit_tag "Create comment" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to 'Login to leave your comment.', login_path %>
+<% end %>
