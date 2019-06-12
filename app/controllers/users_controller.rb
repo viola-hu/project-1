@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       # if true, log the user in!
       session[:user_id] = @user.id
       flash[:success] = "You've created an account successfully!"
-      redirect_to root_path
+      redirect_to categories_path
     else
       # if false, DB will bounce back errors, show errors to user
       flash[:errors] = @user.errors.full_messages

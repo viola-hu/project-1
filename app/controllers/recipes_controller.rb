@@ -43,7 +43,7 @@ class RecipesController < ApplicationController
     # if the current_user is also the owner of the edited/new recipe_id, no problem, this user could initially change their own recipes
     # however, if the current_user is not the owner of the edited/new recipe_id, ERROR, bring them to homepage, cannot proceed to update recipe, using 'return'
     unless @recipe.user == @current_user
-      redirect_to root_path
+      redirect_to categories_path
       return
     end
 
@@ -76,7 +76,17 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    # Security purpose: same reason as #update, user can change recipe_id in elements page,
+    # they are able to delete recipes even though the recipe is not theirs, thus need the below check!!
+    @recipe = Recipe.find params[:id]
+    unless @recipe.user == @current_user
+      redirect_to categories_path
+      return
+    end
 
+    Recipe.destroy params[:id]
+    # once the recipe owner deleted the recipe, redirect to user profile #show page
+    redirect_to user_path @current_user
   end
 
   private

@@ -14,26 +14,18 @@
 
     <!-- nav bar on the top should add in this page!!! -->
 
-    <nav>
-
-      <%= link_to 'Home', root_path %>
-
-      <% if @current_user.present? %>
-        <%= link_to 'Log out', login_path, method:'delete' %>
-        <p>Welcome <%= @current_user.name %>!</p>
-      <% else %>
-        <%= link_to 'Sign up', new_user_path %>
-        <%= link_to 'Log in', login_path %>
-      <% end %>
-
-    </nav>
+    <!-- 1, nav bar -->
+    <%= render partial: 'layouts/navigation' %>
+    <!-- 2, flash message -->
+    <%= render partial: 'layouts/flash' %>
 
 
-    <h1> Nutrition & Smoothies </h1>
+
 
     <hr>
     <%= yield %>
     <hr>
+    <!-- 3, footer-->
     &copy; Viola's Nutrition & Smoothies Production 2019
   </body>
 </html>

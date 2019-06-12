@@ -1,0 +1,13 @@
+<nav>
+
+  <%= link_to 'Home', categories_path %>
+
+  <% if @current_user.present? %>
+    <%= link_to 'Log out', login_path, method:'delete' %>
+    <p>Welcome <%= @current_user.name %>!</p>
+  <% else %>
+    <%= link_to 'Sign up', new_user_path %>
+    <%= link_to 'Log in', login_path %>
+  <% end %>
+
+</nav>

@@ -10,7 +10,7 @@ class SessionController < ApplicationController
       # successful login
       session[:user_id] = user.id
       # redirect to homepage
-      redirect_to root_path
+      redirect_to categories_path
     else
       # failed login
       flash[:error] = 'Wrong email address or password'
@@ -25,6 +25,6 @@ class SessionController < ApplicationController
     # sent farewell message
     flash[:success] = "You've logged out. Hope to see you soon!"
     # redirect to homepage
-    redirect_to root_path
+    redirect_to categories_path
   end
 end
