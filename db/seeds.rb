@@ -59,22 +59,23 @@ puts "Created #{Category.all.length} categories."
 
 Recipe.destroy_all
 r1 = Recipe.create name:'YOUNG AT HEART', image:'', ingredients:'2 cups spinach, 1 frozen medium banana, 1 cup raspberries, 1/4 cup dried goji berries, 2 Tbsp cacao powder, 1 tablespoon almond butter, 2 cups unsweetened vanilla almond milk'
-r2 = Recipe.create name:'RUBY SIPPER', image:'', ingredients:''
-r3 = Recipe.create name:'SWEET PAPAYA PUNCH', image:'', ingredients:''
-r4 = Recipe.create name:'MORNING STAR', image:'', ingredients:''
-r5 = Recipe.create name:'BEST BLAST EVER', image:'', ingredients:''
-r6 = Recipe.create name:'TURMERIFIC', image:'', ingredients:''
-r7 = Recipe.create name:"GREEN LOVER'S BLAST", image:'', ingredients:''
-r8 = Recipe.create name:'CLEAN SPRING SOUP', image:'', ingredients:''
-r9 = Recipe.create name:'SHADES OF GRAPE', image:'', ingredients:''
-r10 = Recipe.create name:'BLUES BE GONE', image:'', ingredients:''
+r2 = Recipe.create name:'RUBY SIPPER', image:'', ingredients:'a'
+r3 = Recipe.create name:'SWEET PAPAYA PUNCH', image:'', ingredients:'a'
+r4 = Recipe.create name:'MORNING STAR', image:'', ingredients:'a'
+r5 = Recipe.create name:'BEST BLAST EVER', image:'', ingredients:'a'
+r6 = Recipe.create name:'TURMERIFIC', image:'', ingredients:'a'
+r7 = Recipe.create name:"GREEN LOVER'S BLAST", image:'', ingredients:'a'
+r8 = Recipe.create name:'CLEAN SPRING SOUP', image:'', ingredients:'a'
+r9 = Recipe.create name:'SHADES OF GRAPE', image:'', ingredients:'a'
+r10 = Recipe.create name:'BLUES BE GONE', image:'', ingredients:'a'
 
 puts "Created #{Recipe.all.length} recipes."
 
 
 
-#####Associations#####################################
-
+# #####Associations#####################################
+# p c1
+# p c2
 # categories & foods
 c1.foods << f1 << f2 << f3 << f4 << f5
 c2.foods << f6 << f7 << f8 << f9 << f10
