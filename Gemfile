@@ -57,3 +57,8 @@ gem 'pry-rails'
 gem 'jquery-rails'
 
 gem 'cloudinary'
+
+
+group :production do
+  gem 'rails_12factor'
+end
