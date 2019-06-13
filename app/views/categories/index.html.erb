@@ -18,9 +18,11 @@
 <% @categories.each do |category| %>
 <%# image to be the background to include name and description %>
   <strong><%= link_to category.name, category_path(category.id) %></strong><br>
-  <%= category.image %> <br>
+  <%= image_tag category.image, alt: category.name %> <br>
   <%= category.description %>  <br>
   <%= link_to "Check all recipes", recipes_index_path(category.id) %>
   <br>
   <br>
 <% end %>
+
+<%= link_to "Share your recipe", new_recipe_path %>

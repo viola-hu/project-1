@@ -1,13 +1,3 @@
-
-<% if flash.now[:errors].present? %>
-  <ul>
-    <% flash.now[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-
 <%= form_for @recipe, html:{multipart: true} do |f| %>
 
   <%= f.label :category_id, 'Select Nutrition Category' %>

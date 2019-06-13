@@ -1,6 +1,11 @@
 class RecipesController < ApplicationController
 
-  before_action :check_if_logged_in, except: [:index, :show, :by_food]
+  before_action :check_if_logged_in, except: [:index, :show, :by_food, :search]
+
+  def search
+    # raise 'hell'
+    @results = Recipe.where 'ingredients ILIKE ? OR name ILIKE ?', "%#{params[:query]}%", "%#{params[:query]}%"
+  end
 
   def by_food
     # params pass over the food :id
@@ -14,7 +19,6 @@ class RecipesController < ApplicationController
   end
 
   def create
-    # raise 'hell'
     # NOTE: we use .new and not .create because we might have to add the cloudinary image ID before we save this new item, thus we comment out [:image] in the strong params, in order to manually add this @recipe.image value from cloudinary
     @recipe = Recipe.new params_recipe
 
@@ -27,27 +31,26 @@ class RecipesController < ApplicationController
     @recipe.save
 
     if @recipe.persisted?
+      # if saved into DB successfully
 
+      # 1)
       # need to add recipe_id and food_id into the JOIN TABLE: foods_recipes
-      # Q4: i've got recipe_id, food_ids - params_foods' return value of a hash?a
-
-      # ONLY NEED THIS FOR UPDATE
-      # Delete all the food associations for this recipe, as an
-      # easy way to avoid duplicates
-      # @recipe.foods.delete_all
-
+      # we've got recipe_id and food_ids (params_foods returns value of a hash with food id array)
+      # params_foods[:food_ids] returns an array of food ids
+      # Food.where id: ["377", "380"] -> returns an array of matching food objects
       # Now add all the foods that were ticked in the form,
-      # as food associations for this recipe
+      # as food associations for this recipe, using <<
       @recipe.foods << Food.where(id: params_foods[:food_ids])
 
-      # if saved into DB, redirect to recipe show page
+      # 2) redirect to recipe show page
       redirect_to recipe_path(@recipe.id)
     else
-      # if not save, DB bounce back error!
+      # if not saved, DB bounce back error!
       flash.now[:errors] = @recipe.errors.full_messages
       render :new
     end
   end
+
 
   def edit
     @recipe = Recipe.find params[:id]
@@ -82,7 +85,22 @@ class RecipesController < ApplicationController
     # update with strong params, .update change DB directly, and returns true/false
     if @recipe.update params_recipe
       # successful DB update
-      redirect_to recipe_path params[:id]
+
+      # 1)
+      # update JOIN TABLE foods_recipes
+      # ONLY NEED THIS FOR UPDATE
+      # Delete all the food associations for this recipe before adding the new foods to it
+      # as an easy way to avoid duplicates
+      @recipe.foods.delete_all
+
+      # 2)
+      # Now add all the foods that were ticked in the form,
+      # as new food associations for this recipe, using <<
+      @recipe.foods << Food.where(id: params_foods[:food_ids])
+
+      # 3)
+      # redirect to recipe show page
+      redirect_to recipe_path(@recipe.id)
     else
       # failed DB update
       flash.now[:errors] = @recipe.errors.full_messages
@@ -122,9 +140,8 @@ class RecipesController < ApplicationController
   end
 
   def params_foods
-    # Q3: p is a hash? key: food_ids, value: an array of food ids? CORRECT!
+    # below returns a hash, key: food_ids, value: an array of food ids? CORRECT!
     params.require(:recipe).permit(:food_ids => [ ])
-    # , p now is a hash with filtered array value
     # p[:food_ids].reject!(&:blank?)
   end
 

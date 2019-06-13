@@ -19,11 +19,11 @@
   <%= link_to 'Delete this recipe', recipe_path(@recipe), method:'delete' %>
 <% end %>
 
-<h3>Top Foods</h3>
+<h3>Top Nutritious Foods</h3>
 <ul>
   <% @recipe.foods.each do |food| %>
     <li>
-      <%= food.name %>
+      <%= food.name %> (category: <%= food.category.name %>)
     </li>
   <% end %>
 </ul>

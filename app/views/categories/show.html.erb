@@ -1,5 +1,5 @@
 <%#  use category image to be header of the show page!%>
-<%= image_tag @category.image, alt:@category.name %>
+<%= image_tag @category.image, alt: @category.name %>
 
 <h2>Top x<%= @category.foods.length %> foods for <%= @category.name %> </h2>
 <h3><%= @category.feature %></h3>

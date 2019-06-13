@@ -1,5 +1,6 @@
 <nav>
-
+  <%= form_tag recipes_search_path, method:'get' do %>
+  
   <%= link_to 'Home', categories_path %>
 
   <% if @current_user.present? %>
@@ -9,5 +10,11 @@
     <%= link_to 'Sign up', new_user_path %>
     <%= link_to 'Log in', login_path %>
   <% end %>
+
+
+     <%= text_field_tag :query, nil, placeholder:'Ingredients search' %>
+     <%= submit_tag 'Search' %>
+
+   <% end %>
 
 </nav>
