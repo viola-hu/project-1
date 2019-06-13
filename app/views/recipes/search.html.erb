@@ -1,5 +1,9 @@
  <h2>Results</h2>
 
 <% @results.each do |recipe| %>
-  <%= recipe.name %><br>  
+  <%= link_to recipe.name, recipe_path(recipe.id) %>
+  <% if recipe.image.present? %>
+    <%= image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
+  <% end %>
+  <br>
 <% end %>
