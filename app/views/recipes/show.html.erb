@@ -1,23 +1,27 @@
-<!-- use category's image to be header image on the top -->
-<%= image_tag @recipe.category.image, alt: "#{@recipe.category.name}" %>
+<div class="spotlight-container">
+<%= image_tag @recipe.category.image, alt: "#{@recipe.category.name}", class: "spotlight-image" %>
+</div>
 
 <h2><%= @recipe.name.upcase %></h2>
 <h3>By <%= @recipe.user.name %></h3>
+<br>
 
 <%# image sitting next to the the title, need to limit the image size! %>
 <% if @recipe.image.present? %>
   <%= cl_image_tag @recipe.image, alt: "#{@recipe.name}"%>
 <% end %>
 
-<h3>Ingredients</h3>
 <!-- to substitute all '\n' with '<br>' to actually make html render the line break -->
 <!-- .html_safe is to tell the browser that it's a legit html element, render it but not treat it as a string -->
+<h3>Ingredients</h3>
 <p><%= @recipe.ingredients.gsub("\n", '<br>').html_safe %></p>
+<br>
 
 <% if @current_user.present? && @current_user == @recipe.user%>
   <%= link_to 'Edit this recipe', edit_recipe_path(@recipe) %>
   <%= link_to 'Delete this recipe', recipe_path(@recipe), method:'delete' %>
 <% end %>
+<br><br>
 
 <h3>Top Nutritious Foods</h3>
 <ul>
@@ -27,11 +31,10 @@
     </li>
   <% end %>
 </ul>
+<br>
 
 <h3>Ratings & Comments</h3>
-
 <!-- public area, show exisiting comments -->
-
 <% if @recipe.reviews.present? %>
   <% @recipe.reviews.each do |review| %>
     <p>Rating: <%= review.rating %> | By: <%= review.user.name %></p>
@@ -40,11 +43,11 @@
 <% else %>
   <p>No comments yet!</p>
 <% end %>
+<br>
 
 
 
 <!-- authenticated user area: if login && not recipe owner, can make comment -->
-
 <% if @current_user.present? %>
   <% if @current_user.id != @recipe.user_id %>
     <%= form_tag new_review_path do %>

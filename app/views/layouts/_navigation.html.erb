@@ -1,20 +1,26 @@
-<nav>
-  <%= form_tag recipes_search_path, method:'get' do %>
-  
+<div class="navbar" >
+
+
   <%= link_to 'Home', categories_path %>
 
   <% if @current_user.present? %>
+    Welcome <%= @current_user.name %>!
+    <%= link_to "Share your recipe", new_recipe_path %>
     <%= link_to 'Log out', login_path, method:'delete' %>
-    <p>Welcome <%= @current_user.name %>!</p>
   <% else %>
     <%= link_to 'Sign up', new_user_path %>
     <%= link_to 'Log in', login_path %>
   <% end %>
 
+  <div id='search_form'>
+    <%= form_tag recipes_search_path, method:'get' do %>
+      <%= text_field_tag :query, nil, placeholder:'Ingredients search...' %>
+      <%= submit_tag 'Search' %>
+    <% end %>
+  </div>
 
-     <%= text_field_tag :query, nil, placeholder:'Ingredients search' %>
-     <%= submit_tag 'Search' %>
 
-   <% end %>
 
-</nav>
+
+
+</div>

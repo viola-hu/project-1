@@ -1,5 +1,6 @@
-<%# use food image as background or header %>
-<%= image_tag @food.category.image %>
+<div class="spotlight-container">
+  <%= image_tag @food.category.image, class: "spotlight-image" %>
+</div>
 
 <h2>Recipes with <%= @food.name %></h2>
 

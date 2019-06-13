@@ -1,6 +1,6 @@
-<!-- use category image as header for the page -->
-<%= image_tag @category.image, alt:@category.name %>
-
+<div class="spotlight-container">
+  <%= image_tag @category.image, alt:@category.name, class:"spotlight-image" %>
+</div>
 <h2>Recipes of <%= @category.name %></h2>
 
 <%= render partial: 'recipe_list' %>

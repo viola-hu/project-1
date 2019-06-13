@@ -2,27 +2,45 @@
 1, right under nav bar, full width of page
 2, h1, h2 included in the image -->
 
+<div class="spotlight-container">
+  <%= image_tag "mix-heading.jpg", alt:'mix-color', class: "spotlight-image" %>
+  <div class="spotlight-text">
+    <h1> Nutrition & Smoothies </h1>
+    <h2>Make Your Diet Nutritious & Simple</h2>
+    <p>100+ shared recipes, cover all nutritions, taylored for your health</p>
+  </div>
+</div>
 
-<%= image_tag "http://placebear.com/300/300" %>
-<h1> Nutrition & Smoothies </h1>
-<h2>Make your diet Nutritious & Simple</h2>
-
-
-<!-- search function if time allows -->
-<p>100+ smoothie recipes tailored for various nutrition aspects </p>
-<p>!!!INSERT SEARCH FEATURE!!!</p>
+<div class="space">
+</div>
 
 
 <!--##################### Show each category list #########################-->
 
-<% @categories.each do |category| %>
-<%# image to be the background to include name and description %>
-  <strong><%= link_to category.name, category_path(category.id) %></strong><br>
-  <%= image_tag category.image, alt: category.name %> <br>
-  <%= category.description %>  <br>
-  <%= link_to "Check all recipes", recipes_index_path(category.id) %>
-  <br>
-  <br>
-<% end %>
+<div>
+  <% @categories.each_with_index do |category| %>
 
-<%= link_to "Share your recipe", new_recipe_path %>
+  <div class="category-container" >
+    <%= image_tag category.image, alt: category.name, class:"category-image" %>
+    <div id="category-left" class="column">
+      <div class="category-left-text" id=<%= category.name.split.last %>>
+        <div class="category-left-text-content">
+          <%= link_to category.name, category_path(category.id), id:"category-name" %>
+          <p> -------------------------- </p>
+          <p id="category-feature"><%= category.feature %></p>
+        </div>
+      </div>
+    </div><div id="category-right" class="column">
+      <div class="category-right-text" id=<%= category.name.split.last%>>
+        <div class="category-right-text-content">
+          <p class="category-description"><%= category.description %></p>
+          <%= link_to ">> Check all recipes", recipes_index_path(category.id), id:"check-recipe" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="space">
+  </div>
+  <% end %>
+</div>
