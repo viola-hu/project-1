@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     if @user.persisted?
       # if true, log the user in!
       session[:user_id] = @user.id
-      flash[:success] = "You've created an account successfully!"
+      # no need of this message, as 'Welcome XXX' in nav
+      # flash[:success] = "You've created an account successfully!"
       redirect_to categories_path
     else
       # if false, DB will bounce back errors, show errors to user
-      flash[:errors] = @user.errors.full_messages
+      flash.now[:errors] = @user.errors.full_messages
       # render the signup page with previous input prefilled
       render :new
     end

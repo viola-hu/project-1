@@ -1,0 +1,19 @@
+<% if @recipes.present? %>
+  <% @recipes.each do |recipe| %>
+    <%= link_to recipe.name, recipe_path(recipe.id) %>
+    <% if recipe.image.present? %>
+      <%= image_tag recipe.image, alt:recipe.name %>
+    <% end %>
+    <br>
+  <% end %>
+<% else %>
+  No recipe yet!
+<% end %>
+
+<br>
+
+<% if @current_user.present? %>
+  <%= link_to 'Share your recipe', new_recipe_path %>
+<% else %>
+  <%= link_to 'Login to share your recipe', login_path%>
+<% end %>

@@ -1,0 +1,6 @@
+<%# use food image as background or header %>
+<%= image_tag @food.image %>
+
+<h2>Recipes with <%= @food.name %></h2>
+
+<%= render partial: 'recipe_list'  %>

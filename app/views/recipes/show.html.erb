@@ -10,14 +10,23 @@
 <% end %>
 
 <h3>Ingredients</h3>
-<p><%= @recipe.ingredients %></p>
+<!-- to substitute all '\n' with '<br>' to actually make html render the line break -->
+<!-- .html_safe is to tell the browser that it's a legit html element, render it but not treat it as a string -->
+<p><%= @recipe.ingredients.gsub("\n", '<br>').html_safe %></p>
 
 <% if @current_user.present? && @current_user == @recipe.user%>
   <%= link_to 'Edit this recipe', edit_recipe_path(@recipe) %>
   <%= link_to 'Delete this recipe', recipe_path(@recipe), method:'delete' %>
 <% end %>
 
-
+<h3>Top Foods</h3>
+<ul>
+  <% @recipe.foods.each do |food| %>
+    <li>
+      <%= food.name %>
+    </li>
+  <% end %>
+</ul>
 
 <h3>Ratings & Comments</h3>
 
@@ -35,15 +44,6 @@
 
 
 <!-- authenticated user area: if login && not recipe owner, can make comment -->
-
-<% if flash.now[:errors].present? %>
-  <ul>
-    <% flash.now[:errors].each do |error| %>
-    <li> <%= error %> </li>
-    <% end %>
-  </ul>
-<% end %>
-
 
 <% if @current_user.present? %>
   <% if @current_user.id != @recipe.user_id %>

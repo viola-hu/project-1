@@ -1,13 +1,5 @@
 <h2>Sign up now</h2>
 
-<% if flash[:errors].present? %>
-  <ul>
-    <% flash[:errors].each do |error| %>
-    <li> <%= error %> </li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @user do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>

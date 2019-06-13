@@ -1,2 +1,17 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<%#  use category image to be header of the show page!%>
+<%= image_tag @category.image, alt:@category.name %>
+
+<h2>Top x<%= @category.foods.length %> foods for <%= @category.name %> </h2>
+<h3><%= @category.feature %></h3>
+
+<% @foods.each_with_index do |food,index| %>
+  <strong>0<%= index + 1 %></strong>
+  <%= link_to food.name, food_recipes_path(food.id) %>
+  <br>
+  <% if food.image.present? %>
+    <%= image_tag food.image, alt:food.name %>
+  <% end %>
+  <%= food.description %>
+  <br>
+  <br>
+<% end %>

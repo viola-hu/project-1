@@ -1,2 +1,6 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<!-- use category image as header for the page -->
+<%= image_tag @category.image, alt:@category.name %>
+
+<h2>Recipes of <%= @category.name %></h2>
+
+<%= render partial: 'recipe_list' %>

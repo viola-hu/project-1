@@ -22,8 +22,8 @@ class SessionController < ApplicationController
   def destroy
     # reset session key to nil, log user out
     session[:user_id] = nil
-    # sent farewell message
-    flash[:success] = "You've logged out. Hope to see you soon!"
+    # sent farewell message => omit!
+    # flash[:success] = "You've logged out. Hope to see you soon!"
     # redirect to homepage
     redirect_to categories_path
   end

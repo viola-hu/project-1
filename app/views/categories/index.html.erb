@@ -1,1 +1,26 @@
+<!-- header image,
+1, right under nav bar, full width of page
+2, h1, h2 included in the image -->
+
+
+<%= image_tag "http://placebear.com/300/300" %>
 <h1> Nutrition & Smoothies </h1>
+<h2>Make your diet Nutritious & Simple</h2>
+
+
+<!-- search function if time allows -->
+<p>100+ smoothie recipes tailored for various nutrition aspects </p>
+<p>!!!INSERT SEARCH FEATURE!!!</p>
+
+
+<!--##################### Show each category list #########################-->
+
+<% @categories.each do |category| %>
+<%# image to be the background to include name and description %>
+  <strong><%= link_to category.name, category_path(category.id) %></strong><br>
+  <%= category.image %> <br>
+  <%= category.description %>  <br>
+  <%= link_to "Check all recipes", recipes_index_path(category.id) %>
+  <br>
+  <br>
+<% end %>
