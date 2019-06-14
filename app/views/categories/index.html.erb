@@ -2,9 +2,9 @@
 1, right under nav bar, full width of page
 2, h1, h2 included in the image -->
 
-<div class="spotlight-container">
-  <%= image_tag "mix-heading.jpg", alt:'mix-color', class: "spotlight-image" %>
-  <div class="spotlight-text">
+<div class="spotlight-container-home">
+  <%= image_tag "mix-heading.jpg", alt:'mix-color', class: "spotlight-image-home" %>
+  <div class="spotlight-text-home">
     <h1> Nutrition & Smoothies </h1>
     <h2>Make Your Diet Nutritious & Simple</h2>
     <p>100+ shared recipes, cover all nutritions, taylored for your health</p>
@@ -25,16 +25,19 @@
     <div id="category-left" class="column">
       <div class="category-left-text" id=<%= category.name.split.last %>>
         <div class="category-left-text-content">
-          <%= link_to category.name, category_path(category.id), id:"category-name" %>
-          <p> -------------------------- </p>
+          <div class="category-name">
+            <%= link_to category.name, category_path(category.id), id:"category-name" %>
+          </div>
           <p id="category-feature"><%= category.feature %></p>
         </div>
       </div>
     </div><div id="category-right" class="column">
       <div class="category-right-text" id=<%= category.name.split.last%>>
         <div class="category-right-text-content">
-          <p class="category-description"><%= category.description %></p>
-          <%= link_to ">> Check all recipes", recipes_index_path(category.id), id:"check-recipe" %>
+          <p class="category-description">
+            <%= category.description %>
+            <%= link_to ">> Check all recipes", recipes_index_path(category.id), id:"check-recipe" %>
+          </p>
         </div>
       </div>
     </div>

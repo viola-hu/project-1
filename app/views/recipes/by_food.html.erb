@@ -1,7 +1,8 @@
 <div class="spotlight-container">
   <%= image_tag @food.category.image, class: "spotlight-image" %>
+  <div class="spotlight-text">
+    <h1>Recipes with <%= @food.name %></h1>
+  </div>
 </div>
-
-<h2>Recipes with <%= @food.name %></h2>
 
 <%= render partial: 'recipe_list'  %>

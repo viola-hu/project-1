@@ -7,25 +7,29 @@
   </div>
 </div>
 
-<h2>Log into your account</h2>
+<div class="first-layer-content">
+  <div class="second-layer-content">
+    <h2>Log into your account</h2>
 
-<% if flash[:error] %>
-  <%= flash[:error] %>
-  <br><br>
-<% end %>
+    <% if flash[:error] %>
+      <%= flash[:error] %>
+      <br><br>
+    <% end %>
 
-<%= form_tag login_path do %>
+    <%= form_tag login_path do %>
 
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
 
-  <br>
+      <br>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
 
-  <br>
+      <br>
 
-  <%= submit_tag 'Login' %>
+      <%= submit_tag 'Login' %>
 
-<% end %>
+    <% end %>
+  </div>
+</div>

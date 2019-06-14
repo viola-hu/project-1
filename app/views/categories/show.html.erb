@@ -1,18 +1,24 @@
 <div class="spotlight-container">
   <%= image_tag @category.image, alt: @category.name, class:"spotlight-image" %>
+  <div class="spotlight-text">
+    <h1>Top x<%= @category.foods.length %> foods for <%= @category.name %> </h1>
+    <h2><%= @category.feature %></h2>
+  </div>
 </div>
 
-<h2>Top x<%= @category.foods.length %> foods for <%= @category.name %> </h2>
-<h3><%= @category.feature %></h3>
 
-<% @foods.each_with_index do |food,index| %>
-  <strong>0<%= index + 1 %></strong>
-  <%= link_to food.name, food_recipes_path(food.id) %>
-  <br>
-  <% if food.image.present? %>
-    <%= image_tag food.image, alt:food.name %>
-  <% end %>
-  <%= food.description %>
-  <br>
-  <br>
-<% end %>
+<div class="first-layer-content">
+  <div class="second-layer-content">
+    <% @foods.each_with_index do |food,index| %>
+      <strong>0<%= index + 1 %></strong>
+      <%= link_to food.name, food_recipes_path(food.id) %>
+      <br>
+      <% if food.image.present? %>
+        <%= image_tag food.image, alt:food.name %>
+      <% end %>
+      <%= food.description %>
+      <br>
+      <br>
+    <% end %>
+  </div>
+</div>

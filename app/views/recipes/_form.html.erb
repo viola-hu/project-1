@@ -1,31 +1,47 @@
-<%= form_for @recipe, html:{multipart: true} do |f| %>
 
-  <%= f.label :category_id, 'Select Nutrition Category' %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, prompt:'Please select a nutrition category' %>
-  <br><br>
-  <%= f.label :name, 'Smoothie name' %>
-  <%= f.text_field :name %>
-  <br><br>
-  <%= f.label :image, 'Upload an image' %>
-  <!-- use cloudinary to upload local images-->
-  <%= f.cl_image_upload :image %>
-  <br><br>
-  <%= f.label :ingredients %>
-  <%= f.text_area :ingredients %>
-  <br><br>
-  <!-- Q1, Do I put this prompt outside? NO, can use label, recipes & foods have association, so can use this :foods -->
-  <%= f.label :foods, 'Select appropriate foods from below:' %>
-  <br>
-  <!-- Q2, how to put each item on vertical? check below -->
-  <!-- include_hidden:false is to Remove Rails' blank collection item, i.e. empty item in the return array -->
-  <%= f.collection_check_boxes :food_ids, Food.all.each, :id, :name, include_hidden: false do |b| %>
-     <%= b.label(class: 'check_box') do %>
-       <%= b.check_box(class: 'check_box') %>
-       <%= b.object.name %>
-       <br>
-     <% end %>
-  <% end %>
-  <br>
-  <%= f.submit %>
 
-<% end %>
+
+<div class="first-layer-content">
+  <div class="second-layer-content">
+
+    <% if flash[:errors].present? %>
+      <ul>
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <br>
+
+    <%= form_for @recipe, html:{multipart: true} do |f| %>
+
+      <%= f.label :category_id, 'Select Nutrition Category' %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, prompt:'Please select a nutrition category' %>
+      <br><br>
+      <%= f.label :name, 'Smoothie name' %>
+      <%= f.text_field :name %>
+      <br><br>
+      <%= f.label :image, 'Upload an image' %>
+      <!-- use cloudinary to upload local images-->
+      <%= f.cl_image_upload :image %>
+      <br><br>
+      <%= f.label :ingredients %>
+      <%= f.text_area :ingredients %>
+      <br><br>
+      <!-- Q1, Do I put this prompt outside? NO, can use label, recipes & foods have association, so can use this :foods -->
+      <%= f.label :foods, 'Select appropriate foods from below:' %>
+      <br>
+      <!-- Q2, how to put each item on vertical? check below -->
+      <!-- include_hidden:false is to Remove Rails' blank collection item, i.e. empty item in the return array -->
+      <%= f.collection_check_boxes :food_ids, Food.all.each, :id, :name, include_hidden: false do |b| %>
+         <%= b.label(class: 'check_box') do %>
+           <%= b.check_box(class: 'check_box') %>
+           <%= b.object.name %>
+           <br>
+         <% end %>
+      <% end %>
+      <br>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

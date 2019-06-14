@@ -8,6 +8,15 @@ body{
   font-family: Arial, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+ul{
+  list-style-type: none;
+  color:rgb(21, 209, 198)
+}
+
 .navbar{
   overflow: hidden;
   background-color: #333;
@@ -15,13 +24,15 @@ body{
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
+  height: 10vh;
 }
 
 .navbar a {
   display: inline-block;
   color: #f2f2f2;
   text-align: center;
-  padding: 20px 16px;
+  padding: 25px 16px;
   text-decoration: none;
   font-size: 16px;
 }
@@ -30,6 +41,22 @@ body{
   background: #ddd;
   color: black;
 }
+
+.navbar > div {
+  display:inline-block;
+  position:relative;
+  height: 100%;
+}
+
+.nav-left{
+  width: 30%;
+}
+
+.nav-right{
+  width:70%;
+  text-align: right;
+}
+
 
 #search_form {
   display: inline-block;
@@ -49,13 +76,15 @@ body{
   margin: 57px auto 0px;
 }
 
-.spotlight-container {
+
+
+.spotlight-container-home {
   margin: 0 auto;
   width: 100%;
   height: 400px;
 }
 
-.spotlight-image {
+.spotlight-image-home {
   width: 100%;
   height: 400px;
   z-index: -1;
@@ -64,7 +93,8 @@ body{
   opacity: 0.95;
 }
 
-.spotlight-text {
+
+.spotlight-text-home {
   margin: 0 auto;
   text-align: center;
   padding: 200px 0;
@@ -74,7 +104,7 @@ body{
 }
 
 h1{
-  text-size:40px;
+  font-size:40px;
 }
 
 .space{
@@ -112,6 +142,7 @@ h1{
   vertical-align: top;
 }
 
+
 #category-left{
   width:30%;
 }
@@ -144,6 +175,19 @@ h1{
 
 .category-description{
   font-size: 18px;
+  padding: 40px;
+}
+
+.category-name{
+  border-bottom-color: white;
+  border-bottom-style: dashed;
+  width: 170px;
+  padding: 10px;
+  margin: auto;
+}
+
+#category-feature{
+  padding: 10px
 }
 
 #REDS{
@@ -177,7 +221,7 @@ h1{
 }
 
 #check-recipe {
-  color: black !important;
+  color: rgb(19, 215, 204) !important;
 }
 
 #category-name{
@@ -187,4 +231,57 @@ h1{
 .recipe-image{
   max-width: 300px;
   max-height: 300px;
+  border: dashed rgb(30, 220, 232);
+}
+
+.field_with_errors input {
+  border: 2px solid red;
+  color: red;
+}
+
+
+/* Make sure footer is always at bottom of page, even on pages without much content */
+div#main {
+    min-height: calc(100vh - 50px);
+}
+
+.footer{
+  background-color: #333;
+  color: white;
+  text-align: center;
+  height: 50px;
+}
+
+.footer > p{
+  padding:15px;
+}
+
+.spotlight-container {
+  margin: 0 auto;
+  width: 100%;
+  height: 200px;
+}
+
+.spotlight-image {
+  width: 100%;
+  height: 200px;
+  z-index: -1;
+  position: absolute;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.spotlight-text {
+  margin: 0 auto;
+  text-align: center;
+  padding: 80px 0;
+  color: #FFF;
+  text-shadow: 1px 1px #000;
+  max-width: 700px;
+}
+
+.second-layer-content{
+  margin: 20px auto;
+  width: 60%;
+  /* text-align: center; */
 }

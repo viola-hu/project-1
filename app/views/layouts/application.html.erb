@@ -13,14 +13,21 @@
   <body>
     <!-- 1, nav bar -->
     <%= render partial: 'layouts/navigation' %>
-    <!-- 2, flash message -->
-    <%= render partial: 'layouts/flash' %>
 
-    <hr>
-    <%= yield %>
-    <hr>
+    <!-- <hr> -->
 
-    <!-- 3, footer -->
-    &copy; Viola's Nutrition & Smoothies Production 2019
+    <div id="main">
+      <!-- 2, flash message -->
+      <%# <%= render partial: 'layouts/flash' %> %>
+
+      <%= yield %>
+
+
+    </div><!-- #main -->
+    <footer class="footer">
+      <p>
+      &copy; Viola's Nutrition & Smoothies Production 2019
+      </p>
+    </footer>
   </body>
 </html>

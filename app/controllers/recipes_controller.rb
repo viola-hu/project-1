@@ -130,7 +130,7 @@ class RecipesController < ApplicationController
 
     Recipe.destroy params[:id]
     # once the recipe owner deleted the recipe, redirect to user profile #show page
-    redirect_to user_path @current_user
+    redirect_to categories_path
   end
 
   private

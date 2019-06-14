@@ -1,19 +1,24 @@
-<% if @recipes.present? %>
-  <% @recipes.each do |recipe| %>
-    <%= link_to recipe.name.upcase, recipe_path(recipe.id) %>
-    <% if recipe.image.present? %>
-      <%= cl_image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
+<div class="first-layer-content">
+  <div class="second-layer-content">
+    <% if @recipes.present? %>
+      <% @recipes.each do |recipe| %>
+        <%= link_to recipe.name.upcase, recipe_path(recipe.id) %>
+        <br>
+        <% if recipe.image.present? %>
+          <%= cl_image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
+        <% end %>
+        <br><br>
+      <% end %>
+    <% else %>
+      No recipe yet!
     <% end %>
+
     <br>
-  <% end %>
-<% else %>
-  No recipe yet!
-<% end %>
 
-<br>
-
-<% if @current_user.present? %>
-  <%= link_to 'Share your recipe', new_recipe_path %>
-<% else %>
-  <%= link_to 'Login to share your recipe', login_path%>
-<% end %>
+    <% if @current_user.present? %>
+      <%= link_to 'Share your recipe', new_recipe_path %>
+    <% else %>
+      <%= link_to 'Login to share your recipe', login_path%>
+    <% end %>
+  </div>
+</div>
