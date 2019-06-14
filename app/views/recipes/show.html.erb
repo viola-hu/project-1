@@ -8,7 +8,7 @@
 
 <%# image sitting next to the the title, need to limit the image size! %>
 <% if @recipe.image.present? %>
-  <%= cl_image_tag @recipe.image, alt: "#{@recipe.name}"%>
+  <%= cl_image_tag @recipe.image, alt: @recipe.name, class: "recipe-image"%>
 <% end %>
 
 <!-- to substitute all '\n' with '<br>' to actually make html render the line break -->

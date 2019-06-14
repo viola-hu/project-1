@@ -58,7 +58,7 @@ puts "Created #{Category.all.length} categories."
 
 
 Recipe.destroy_all
-r1 = Recipe.create! name:'YOUNG AT HEART', image:'Young_at_heart.jpg', ingredients: %Q{
+r1 = Recipe.create! name:'YOUNG AT HEART', image:'zfj1jgze25bevmduoqvm', ingredients: %Q{
   2 cups spinach
   1 frozen medium banana
   1 cup cranberries
@@ -67,7 +67,7 @@ r1 = Recipe.create! name:'YOUNG AT HEART', image:'Young_at_heart.jpg', ingredien
   1 tablespoon almond butter
   2 cups unsweetened vanilla almond milk}
 
-r2 = Recipe.create! name:'RUBY SIPPER', image:'Ruby_sipper.jpg', ingredients: %Q{
+r2 = Recipe.create! name:'RUBY SIPPER', image:'nlgrgnqhb02or9wwdbdj', ingredients: %Q{
   2 cups Red Swiss Chard
   2 small Red BEETS
   1/2 cup pure pomegranate juice
@@ -76,7 +76,7 @@ r2 = Recipe.create! name:'RUBY SIPPER', image:'Ruby_sipper.jpg', ingredients: %Q
   1/2 tsp fresh lemon juice
   2 cups water
 }
-r3 = Recipe.create! name:'SWEET PAPAYA PUNCH', image:'Sweet_papaya_punch.jpg', ingredients: %Q{
+r3 = Recipe.create! name:'SWEET PAPAYA PUNCH', image:'kv2hncq8qt85ynzfowdr', ingredients: %Q{
   2 cups Swiss chard
   1.5 cups papaya
   1 medium steamed sweet potato
@@ -84,7 +84,7 @@ r3 = Recipe.create! name:'SWEET PAPAYA PUNCH', image:'Sweet_papaya_punch.jpg', i
   2 tsp cinnamon
   2 cups water
 }
-r4 = Recipe.create! name:'MORNING STAR', image:'Morning_star.jpg', ingredients: %Q{
+r4 = Recipe.create! name:'MORNING STAR', image:'lb4nygjnhrrosikh3oey', ingredients: %Q{
   2 cups spanich
   1.5 bananas
   2 tbsp pumpkin seeds
@@ -93,7 +93,7 @@ r4 = Recipe.create! name:'MORNING STAR', image:'Morning_star.jpg', ingredients: 
   2 tbsp plant-based protein powder
   2 cups unsweetened vanilla almond milk
 }
-r5 = Recipe.create! name:'BEST BLAST EVER', image:'Best_last_ever.jpg', ingredients: %Q{
+r5 = Recipe.create! name:'BEST BLAST EVER', image:'pbqdvd3iikcy1a1brlbi', ingredients: %Q{
   2 cups spanich
   1 frozen banana
   1 cup peach slices
@@ -104,7 +104,7 @@ r5 = Recipe.create! name:'BEST BLAST EVER', image:'Best_last_ever.jpg', ingredie
   1 cup coconut water
   1 cup unsweetened almond milk
 }
-r6 = Recipe.create! name:'TURMERIFIC', image:'Turmerific.jpg', ingredients: %Q{
+r6 = Recipe.create! name:'TURMERIFIC', image:'aurkwpeu2qjjmhq55a47', ingredients: %Q{
   2 cups spanich
   1 cup diced pineapple
   1/2 cup diced papaya
@@ -115,7 +115,7 @@ r6 = Recipe.create! name:'TURMERIFIC', image:'Turmerific.jpg', ingredients: %Q{
   1/2 tsp ginger powder
   2 cups water
 }
-r7 = Recipe.create! name:"GREEN LOVER'S BLAST", image:'Green_lovers_blast.jpg', ingredients: %Q{
+r7 = Recipe.create! name:"GREEN LOVER'S BLAST", image:'vgyi8s1xtkv6hpzzmpo4', ingredients: %Q{
   1 cup baby broccolli
   1 cup spinach
   1/4 cup sliced cucumber
@@ -128,7 +128,7 @@ r7 = Recipe.create! name:"GREEN LOVER'S BLAST", image:'Green_lovers_blast.jpg', 
   1 cup coconut water
   1 cut brewed green tea
 }
-r8 = Recipe.create! name:'GREEN DETOX MACHINE', image:'Green_detox_machine.jpg', ingredients: %Q{
+r8 = Recipe.create! name:'GREEN DETOX MACHINE', image:'viwkgpqy87jpdr4jsvmm', ingredients: %Q{
   2 cups artichokes
   2 green apples
   1 cup cucumber
@@ -140,7 +140,7 @@ r8 = Recipe.create! name:'GREEN DETOX MACHINE', image:'Green_detox_machine.jpg',
   1 cup coconut water
   1 cup water
 }
-r9 = Recipe.create! name:'BRAINIAC BLAST', image:'Brainiac_blast.jpg', ingredients: %Q{
+r9 = Recipe.create! name:'BRAINIAC BLAST', image:'vscgsbxfw9gr4aqygrum', ingredients: %Q{
   2 cups baby kale
   1.5 cup plums
   1 avocado
@@ -150,7 +150,7 @@ r9 = Recipe.create! name:'BRAINIAC BLAST', image:'Brainiac_blast.jpg', ingredien
   1 tbsp lime juice
   1 tsp chlorella powder
 }
-r10 = Recipe.create! name:'BLUES BE GONE', image:'Blues_be_gone.jpg', ingredients: %Q{
+r10 = Recipe.create! name:'BLUES BE GONE', image:'fy8hwdeb00h97jeay4oi', ingredients: %Q{
   2 cups kale
   1 cup blackberreis
   1 cup blueberries

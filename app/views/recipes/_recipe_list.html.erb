@@ -2,7 +2,7 @@
   <% @recipes.each do |recipe| %>
     <%= link_to recipe.name.upcase, recipe_path(recipe.id) %>
     <% if recipe.image.present? %>
-      <%= image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
+      <%= cl_image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
     <% end %>
     <br>
   <% end %>
