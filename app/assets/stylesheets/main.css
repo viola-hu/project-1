@@ -241,9 +241,9 @@ h1{
 
 
 /* Make sure footer is always at bottom of page, even on pages without much content */
-div#main {
+/* div#main {
     min-height: calc(100vh - 50px);
-}
+} */
 
 .footer{
   background-color: #333;
