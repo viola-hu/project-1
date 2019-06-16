@@ -91,7 +91,7 @@ ul{
   position: absolute;
   object-fit: cover;
   opacity: 0.95;
-  
+
 }
 
 
@@ -232,6 +232,7 @@ h1{
 .recipe-image{
   max-width: 300px;
   max-height: 300px;
+  padding: 10px;
   border: dashed rgb(30, 220, 232);
 }
 

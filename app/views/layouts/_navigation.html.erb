@@ -11,11 +11,11 @@
   </div><div class="nav-right">
     <% if @current_user.present? %>
       Welcome <%= @current_user.name %>!
-      <%= link_to "Share your recipe", new_recipe_path %>
+      <%= link_to "Share your recipe", new_recipe_path%>
     <% end %>
     <div id='search_form'>
       <%= form_tag recipes_search_path, method:'get' do %>
-        <%= text_field_tag :query, nil, placeholder:'Ingredients search...' %>
+        <%= text_field_tag :query, nil, placeholder:'search ingredients...'%>
         <%= submit_tag 'Search' %>
       <% end %>
     </div>

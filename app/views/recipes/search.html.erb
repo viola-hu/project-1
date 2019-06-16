@@ -1,9 +1,19 @@
- <h2>Results</h2>
+<div class="spotlight-container">
+<%= image_tag 'mix-heading.jpg', alt: "heading-image", class: "spotlight-image" %>
+  <div class="spotlight-text">
+    <h2>Results</h2>
+  </div>
+</div>
 
-<% @results.each do |recipe| %>
-  <%= link_to recipe.name, recipe_path(recipe.id) %>
-  <% if recipe.image.present? %>
-    <%= cl_image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
-  <% end %>
-  <br>
-<% end %>
+<div class="first-layer-content">
+  <div class="second-layer-content">
+    <% @results.each do |recipe| %>
+      <%= link_to recipe.name.upcase, recipe_path(recipe.id) %>
+      <br>
+      <% if recipe.image.present? %>
+        <%= cl_image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
+      <% end %>
+      <br><br>
+    <% end %>
+  </div>
+</div>

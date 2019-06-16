@@ -9,9 +9,6 @@ Rails.application.routes.draw do
   # log out
   delete '/login' => 'session#destroy'
 
-  # can pass 2x ids in one URL, flexible to customise! 
-  get '/recipes/:id/foods/:food_id' => 'recipes#example', as: 'recipe_food'
-  # recipe_food_path(@recipe.id, @food.id)
 
   resources :categories, only:[:index, :show]
 
@@ -26,8 +23,6 @@ Rails.application.routes.draw do
   get '/foods/:id' => 'recipes#by_food', as:'food_recipes'
   # click on each
   get '/categories/:id/recipes' => 'recipes#index', as:'recipes_index'
-
-
 
   # make reviews [:create] exception, so rails won't generate path automatically for us, and we can customise the path as above with recipe_id passed over!!!
   resources :reviews, except:[:new, :create, :index, :show]
