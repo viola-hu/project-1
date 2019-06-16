@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # log out
   delete '/login' => 'session#destroy'
 
-
+  # can pass 2x ids in one URL, flexible to customise! 
+  get '/recipes/:id/foods/:food_id' => 'recipes#example', as: 'recipe_food'
+  # recipe_food_path(@recipe.id, @food.id)
 
   resources :categories, only:[:index, :show]
 
