@@ -14,16 +14,12 @@
     <!-- 1, nav bar -->
     <%= render partial: 'layouts/navigation' %>
 
-    <!-- <hr> -->
-
+    <!-- 2, main body -->
     <div id="main">
-      <!-- 2, flash message -->
-      <%# <%= render partial: 'layouts/flash' %> %>
-
       <%= yield %>
-
-
     </div><!-- #main -->
+
+    <!-- 3, footer -->
     <footer class="footer">
       <p>
       &copy; Viola's Nutrition & Smoothies Production 2019

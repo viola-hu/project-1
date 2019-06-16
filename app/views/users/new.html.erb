@@ -10,16 +10,18 @@
 <div class="first-layer-content">
   <div class="second-layer-content">
     <h2>Sign up now</h2>
+    <br>
 
-    <br>
-    <% if flash[:errors].present? %>
-      <ul>
-        <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <br>
+    <div class="error">
+      <% if flash[:errors].present? %>
+        <ul>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+        <br>
+      <% end %>
+    </div>
 
     <%= form_for @user do |f| %>
       <%= f.label :name %>
@@ -33,7 +35,7 @@
       <br>
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
-      <br>
+      <br><br>
       <%= f.submit %>
     <% end %>
   </div>

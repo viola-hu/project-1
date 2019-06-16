@@ -11,10 +11,12 @@
   <div class="second-layer-content">
     <h2>Log into your account</h2>
 
-    <% if flash[:error] %>
-      <%= flash[:error] %>
-      <br><br>
-    <% end %>
+    <div class="error">
+      <% if flash[:error] %>
+        <%= flash[:error] %>
+        <br><br>
+      <% end %>
+    </div>
 
     <%= form_tag login_path do %>
 

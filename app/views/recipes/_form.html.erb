@@ -1,17 +1,16 @@
-
-
-
 <div class="first-layer-content">
   <div class="second-layer-content">
 
-    <% if flash[:errors].present? %>
-      <ul>
-        <% flash[:errors].each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-      </ul>
-    <% end %>
-    <br>
+    <div class="error">
+      <% if flash[:errors].present? %>
+        <ul>
+          <% flash[:errors].each do |error| %>
+          <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <br>
+    </div>
 
     <%= form_for @recipe, html:{multipart: true} do |f| %>
 

@@ -14,7 +14,10 @@ a {
 
 ul{
   list-style-type: none;
-  color:rgb(21, 209, 198);
+}
+
+.error{
+  color:rgb(230, 18, 107);
 }
 
 .navbar{
@@ -57,6 +60,9 @@ ul{
   text-align: right;
 }
 
+.food-list{
+  color:rgb(21, 209, 198);
+}
 
 #search_form {
   display: inline-block;
@@ -98,7 +104,7 @@ ul{
 .spotlight-text-home {
   margin: 0 auto;
   text-align: center;
-  padding: 200px 0;
+  padding: 160px 0;
   color: #FFF;
   text-shadow: 1px 1px #000;
   max-width: 700px;
@@ -171,12 +177,12 @@ h1{
 
 .category-right-text-content{
   position: relative;
-  top: 60px;
+  top: 30px;
 }
 
 .category-description{
   font-size: 18px;
-  padding: 40px;
+  padding: 42px;
 }
 
 .category-name{
@@ -185,10 +191,14 @@ h1{
   width: 170px;
   padding: 10px;
   margin: auto;
+  font-size:30px;
+  font-weight:900;
 }
+
 
 #category-feature{
   padding: 10px;
+  font-size: 18px;
 }
 
 #REDS{
@@ -210,6 +220,9 @@ h1{
   color: rgb(196, 140, 14);
 }
 
+#YELLOWS .category-name{
+  border-bottom-color: rgb(196, 140, 14);
+}
 
 #GREENS{
   background: green;
@@ -225,9 +238,6 @@ h1{
   color: rgb(19, 215, 204) !important;
 }
 
-#category-name{
-  font-size:30px;
-}
 
 .recipe-image{
   max-width: 300px;
@@ -238,13 +248,17 @@ h1{
 
 .field_with_errors input {
   border: 2px solid red;
-  color: red;
+}
+
+.field_with_errors textarea {
+  border: 2px solid red;
 }
 
 
 /* Make sure footer is always at bottom of page, even on pages without much content */
 div#main {
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 10vh - 50px);
+    margin-top: 10vh;
 }
 
 .footer{
