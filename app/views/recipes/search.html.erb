@@ -5,15 +5,20 @@
   </div>
 </div>
 
+
 <div class="first-layer-content">
   <div class="second-layer-content">
-    <% @results.each do |recipe| %>
-      <%= link_to recipe.name.upcase, recipe_path(recipe.id) %>
-      <br>
-      <% if recipe.image.present? %>
-        <%= cl_image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
+    <% if @results.present? %>
+      <% @results.each do |recipe| %>
+        <%= link_to recipe.name.upcase, recipe_path(recipe.id) %>
+        <br>
+        <% if recipe.image.present? %>
+          <%= cl_image_tag recipe.image, alt:recipe.name, class:"recipe-image" %>
+        <% end %>
+        <br><br>
       <% end %>
-      <br><br>
+    <% else %>
+      <h2>No results found!</h2>
     <% end %>
   </div>
 </div>

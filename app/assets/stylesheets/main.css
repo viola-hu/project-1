@@ -38,6 +38,7 @@ ul{
   padding: 25px 16px;
   text-decoration: none;
   font-size: 16px;
+  height: 100%
 }
 
 .navbar a:hover {
@@ -115,7 +116,7 @@ h1{
 }
 
 .space{
-  height:50px;
+  height:30px;
 }
 
 .transition-text{
@@ -127,7 +128,7 @@ h1{
 .category-container{
   margin: 0 auto;
   width: 100%;
-  height: 400px;
+  height: 250px;
 }
 
 .category-container a{
@@ -137,11 +138,11 @@ h1{
 .category-image{
   text-align: center;
   width: 100%;
-  height: 400px;
+  height: 250px;
   z-index: -1;
   position: absolute;
   object-fit: cover;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .column{
@@ -160,44 +161,45 @@ h1{
 
 .category-left-text {
   text-align: center;
-  height: 250px;
-  margin: 75px 0px 75px 50px;
+  height: 160px;
+  margin: 45px 0px 45px 70px;
 }
 
 .category-right-text {
-  height:250px;
-  margin: 75px 50px 75px 0;
-  opacity: 0.7;
+  height: 160px;
+  margin: 45px 70px 45px 0;
+  opacity: 0.75;
 }
+
+
 
 .category-left-text-content{
   position: relative;
-  top: 60px;
+  top: 20%;
 }
 
 .category-right-text-content{
   position: relative;
-  top: 30px;
+  top: 20%;
 }
 
 .category-description{
   font-size: 18px;
-  padding: 42px;
+  padding: 0 20px;
 }
 
 .category-name{
   border-bottom-color: white;
   border-bottom-style: dashed;
-  width: 170px;
-  padding: 10px;
+  padding: 0 10px 10px;
   margin: auto;
   font-size:30px;
-  font-weight:900;
+  font-weight:600;
 }
 
 
 #category-feature{
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   font-size: 18px;
 }
 
@@ -257,7 +259,7 @@ h1{
 
 /* Make sure footer is always at bottom of page, even on pages without much content */
 div#main {
-    min-height: calc(100vh - 10vh - 50px);
+    min-height: calc(100vh - 10vh - 30px);
     margin-top: 10vh;
 }
 
