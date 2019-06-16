@@ -14,6 +14,7 @@ All users can
   * check recipes via nutrition category or via ingredient food that's on the top food list
   * view comments of each recipe (if any)
   * search recipes with ingredients and recipe names
+
 Only authenticated users can
   * share their own recipes
   * edit/delete their own recipes
