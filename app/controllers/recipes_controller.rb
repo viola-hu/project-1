@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   def search
     # raise 'hell'
     # # params:{"utf8"=>"✓", "query"=>"pineapple", "commit"=>"Search"}
-    @results = Recipe.joins(:foods).where('recipes.ingredients ILIKE ? OR recipes.name ILIKE ? OR foods.name ILIKE?', "%#{params[:query]}%", "%#{params[:query]}%","%#{params[:query]}%").distinct
+    @results = Recipe.joins(:foods).where('recipes.ingredients ILIKE ? OR recipes.name ILIKE ? OR foods.name ILIKE ?', "%#{params[:query]}%", "%#{params[:query]}%", "%#{params[:query]}%").distinct
     # LIKE pattern matching always covers the entire string. Therefore, if it's desired to match a sequence anywhere within a string, the pattern must start and end with a percent sign.
     # a percent sign (%) matches any sequence of zero or more characters. e.g. 'abc' LIKE 'a%', true
     # The key word ILIKE can be used instead of LIKE to make the match case-insensitive according to the active locale. This is not in the SQL standard but is a PostgreSQL extension.

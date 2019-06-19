@@ -48,48 +48,55 @@ puts "Created #{Food.all.length} foods."
 Category.destroy_all
 
 c1 = Category.create! name:'THE REDS', feature:'ANTI-AGING', image:'THEREDS.jpg', description:"SEEING RED ISN'T ALWAYS A BAD THING. In the case of diet and nutrition, red pigmentation often indicates a special blend of vitamins, minerals and antioxidant nutrients that help to protect the body from certain stressors associated with aging."
-c2 = Category.create! name:'THE ORANGES', feature:'IMMUNE-BOOSTING', image:'THEORANGES.jpg', description:'THE IMMUNE SYSTEM ACTS AS THE FIRST LINE OF DEFENSE against harmful invaders like viruses and illness-causing bacteria, and as "damage control" for the entire body - helping to heal and repair infection or disease-induced harm. The nutrients commonly found in orange foods have long been associated with immune support.'
-c3 = Category.create! name:'THE YELLOWS', feature:'INFLAMMATION-SOOTHING', image:'THEYELLOWS.jpg', description:"IF YOU'VE EVER ENJOYED A DELICIOUS BOWL OF INDIAN CURRY, you are most likely familiar with turmeric - the spice that gives traditional curry its glowing yellow color.Turmeric is one of nature's most petent anti-inflammatory foods due to its concentrated content of the phenol circumin, and it is not the only yellow-hued food to assist in the body's regulation of inflammation."
-c4 = Category.create! name:'THE GREENS', feature:'DETOXIFYING', image:'THEGREENS.jpg', description:"DETOXIFICATION IS A NATURAL BODILY PROCESS and most organ systems have developed their own methods of self-cleansing. However, in our modern era, our exposure to environment, chemical, dietary, and even emotional toxin is greater than ever before and most bodies could do with a little external assistance."
-c5 = Category.create! name:'THE BLUES & PURPLES', feature:'BRAIN-EMPOWERING', image:'THEBLUESANDPURPLES.jpg', description:"GETTING THE BLUES NEVER SEEMED SO SMART! Foods that are physically blue or purple in color contain a wealth of antioxidant nutrients that benefit the brain and central nervous system. In particular, anthocyanin - the antioxidant pigment that gives these foods their indigo shades - has been linked to maintaining long-term brain health, extending the sharpness of memory and overall cognitive functioning that tend to decline with age."
+c2 = Category.create! name:'THE ORANGES', feature:'IMMUNE-BOOSTING', image:'THEORANGES.jpg', description:'THE IMMUNE SYSTEM ACTS AS THE FIRST LINE OF DEFENSE against harmful invaders like viruses and illness-causing bacteria. The nutrients commonly found in orange foods have long been associated with immune support.'
+c3 = Category.create! name:'THE YELLOWS', feature:'INFLAMMATION-SOOTHING', image:'THEYELLOWS.jpg', description:"YOU'VE EVER ENJOYED A DELICIOUS BOWL OF INDIAN CURRY? Turmeric is one of nature's most petent anti-inflammatory foods due to its concentrated content of the phenol circumin, and it is not the only yellow-hued food to assist in the body's regulation of inflammation."
+c4 = Category.create! name:'THE GREENS', feature:'DETOXIFYING', image:'THEGREENS.jpg', description:"DETOXIFICATION IS A NATURAL BODILY PROCESS and most organ systems have developed their own methods of self-cleansing. Green foods contain chlorophyll, a pigment responsible for their green color and a critical component of the photosynthetic process."
+c5 = Category.create! name:'THE BLUES & PURPLES', feature:'BRAIN-EMPOWERING', image:'THEBLUESANDPURPLES.jpg', description:"GETTING THE BLUES NEVER SEEMED SO SMART! Foods that are physically blue or purple in color contain a wealth of antioxidant nutrients. They maintain long-term brain health, extending the sharpness of memory and overall cognitive functioning that tend to decline with age."
 
 puts "Created #{Category.all.length} categories."
 
 
 
 Recipe.destroy_all
-r1 = Recipe.create! name:'YOUNG AT HEART', image:'zfj1jgze25bevmduoqvm', ingredients: %Q{2 cups spinach
+r1 = Recipe.new( name:'YOUNG AT HEART', image:'zfj1jgze25bevmduoqvm', ingredients: %Q{2 cups spinach
   1 frozen medium banana
   1 cup cranberries
   1/4 cup dried goji berries
   2 Tbsp cacao powder
   1 tablespoon almond butter
-  2 cups unsweetened vanilla almond milk}
+  2 cups unsweetened vanilla almond milk})
+r1.save(validate: false)
 
-r2 = Recipe.create! name:'RUBY SIPPER', image:'nlgrgnqhb02or9wwdbdj', ingredients: %Q{2 cups Red Swiss Chard
+r2 = Recipe.new( name:'RUBY SIPPER', image:'nlgrgnqhb02or9wwdbdj', ingredients: %Q{2 cups Red Swiss Chard
   2 small Red BEETS
   1/2 cup pure pomegranate juice
   1 banana
   1/4 almonds
   1/2 tsp fresh lemon juice
   2 cups water
-}
-r3 = Recipe.create! name:'SWEET PAPAYA PUNCH', image:'kv2hncq8qt85ynzfowdr', ingredients: %Q{2 cups Swiss chard
+})
+r2.save(validate: false)
+
+r3 = Recipe.new( name:'SWEET PAPAYA PUNCH', image:'kv2hncq8qt85ynzfowdr', ingredients: %Q{2 cups Swiss chard
   1.5 cups papaya
   1 medium steamed sweet potato
   2 tbsp almond butter
   2 tsp cinnamon
   2 cups water
-}
-r4 = Recipe.create! name:'MORNING STAR', image:'lb4nygjnhrrosikh3oey', ingredients: %Q{2 cups spanich
+})
+r3.save(validate: false)
+
+r4 = Recipe.new( name:'MORNING STAR', image:'lb4nygjnhrrosikh3oey', ingredients: %Q{2 cups spanich
   1.5 bananas
   2 tbsp pumpkin seeds
   1 orange
   2 medium carrot sticks
   2 tbsp plant-based protein powder
   2 cups unsweetened vanilla almond milk
-}
-r5 = Recipe.create! name:'BEST BLAST EVER', image:'pbqdvd3iikcy1a1brlbi', ingredients: %Q{2 cups spanich
+})
+r4.save(validate: false)
+
+r5 = Recipe.new( name:'BEST BLAST EVER', image:'pbqdvd3iikcy1a1brlbi', ingredients: %Q{2 cups spanich
   1 frozen banana
   1 cup peach slices
   1 cup frozen pineapple
@@ -98,8 +105,10 @@ r5 = Recipe.create! name:'BEST BLAST EVER', image:'pbqdvd3iikcy1a1brlbi', ingred
   1/4 tsp cinnamon
   1 cup coconut water
   1 cup unsweetened almond milk
-}
-r6 = Recipe.create! name:'TURMERIFIC', image:'aurkwpeu2qjjmhq55a47', ingredients: %Q{2 cups spanich
+})
+r5.save(validate: false)
+
+r6 = Recipe.new( name:'TURMERIFIC', image:'aurkwpeu2qjjmhq55a47', ingredients: %Q{2 cups spanich
   1 cup diced pineapple
   1/2 cup diced papaya
   1/4 lime
@@ -108,8 +117,10 @@ r6 = Recipe.create! name:'TURMERIFIC', image:'aurkwpeu2qjjmhq55a47', ingredients
   1 tbsp flax seeds
   1/2 tsp ginger powder
   2 cups water
-}
-r7 = Recipe.create! name:"GREEN LOVER'S BLAST", image:'vgyi8s1xtkv6hpzzmpo4', ingredients: %Q{1 cup baby broccolli
+})
+r6.save(validate: false)
+
+r7 = Recipe.new( name:"GREEN LOVER'S BLAST", image:'vgyi8s1xtkv6hpzzmpo4', ingredients: %Q{1 cup baby broccolli
   1 cup spinach
   1/4 cup sliced cucumber
   1/4 cup sliced zucchini
@@ -120,8 +131,10 @@ r7 = Recipe.create! name:"GREEN LOVER'S BLAST", image:'vgyi8s1xtkv6hpzzmpo4', in
   2 tsp chlorella powder
   1 cup coconut water
   1 cut brewed green tea
-}
-r8 = Recipe.create! name:'GREEN DETOX MACHINE', image:'viwkgpqy87jpdr4jsvmm', ingredients: %Q{2 cups artichokes
+})
+r7.save(validate: false)
+
+r8 = Recipe.new( name:'GREEN DETOX MACHINE', image:'viwkgpqy87jpdr4jsvmm', ingredients: %Q{2 cups artichokes
   2 green apples
   1 cup cucumber
   1 celery stalk
@@ -131,8 +144,10 @@ r8 = Recipe.create! name:'GREEN DETOX MACHINE', image:'viwkgpqy87jpdr4jsvmm', in
   2 fresh mint leaves
   1 cup coconut water
   1 cup water
-}
-r9 = Recipe.create! name:'BRAINIAC BLAST', image:'vscgsbxfw9gr4aqygrum', ingredients: %Q{2 cups baby kale
+})
+r8.save(validate: false)
+
+r9 = Recipe.new( name:'BRAINIAC BLAST', image:'vscgsbxfw9gr4aqygrum', ingredients: %Q{2 cups baby kale
   1.5 cup plums
   1 avocado
   2 tbsp hemp seeds
@@ -140,8 +155,10 @@ r9 = Recipe.create! name:'BRAINIAC BLAST', image:'vscgsbxfw9gr4aqygrum', ingredi
   1 cup green tea
   1 tbsp lime juice
   1 tsp chlorella powder
-}
-r10 = Recipe.create! name:'BLUES BE GONE', image:'fy8hwdeb00h97jeay4oi', ingredients: %Q{2 cups kale
+})
+r9.save(validate: false)
+
+r10 = Recipe.new( name:'BLUES BE GONE', image:'fy8hwdeb00h97jeay4oi', ingredients: %Q{2 cups kale
   1 cup blackberreis
   1 cup blueberries
   1 banana
@@ -149,7 +166,8 @@ r10 = Recipe.create! name:'BLUES BE GONE', image:'fy8hwdeb00h97jeay4oi', ingredi
   1/4 cup walnuts
   2 tbsp raw cacao
   2 cups almond milk
-}
+})
+r10.save(validate: false)
 
 
 puts "Created #{Recipe.all.length} recipes."
