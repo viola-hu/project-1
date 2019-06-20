@@ -4,7 +4,6 @@ class Recipe < ApplicationRecord
   has_many :reviews, dependent: :destroy
   # :dependent options:
   # 1) :destroy, when the object is destroyed, destroy will be called on its associated objects.
-  # -> only to break the association relationship, but reviews data is still in the DB tables
   # 2) :delete, when the object is destroyed, all its associated objects will be deleted directly from the database without calling their destroy method.
 
 
@@ -13,5 +12,5 @@ class Recipe < ApplicationRecord
 
   validates :category, presence: true
   validates :name, presence: true
-  validates :ingredients, presence: true  
+  validates :ingredients, presence: true
 end
